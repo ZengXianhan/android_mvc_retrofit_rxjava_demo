@@ -1,13 +1,15 @@
 package com.zengxh.framework_demo.View.Activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.zengxh.framework_demo.Model.Speaker;
 import com.zengxh.framework_demo.Presenter.BasePresenter;
 import com.zengxh.framework_demo.R;
-import com.zengxh.framework_demo.View.BaseView;
+import com.zengxh.framework_demo.TestContact;
 
-public class MainActivity extends BaseActivity<BasePresenter> implements BaseView {
+import java.util.List;
+
+public class MainActivity extends BaseActivity<TestContact.TestPresenter> implements TestContact.TestView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +18,17 @@ public class MainActivity extends BaseActivity<BasePresenter> implements BaseVie
     }
 
     @Override
-    public BasePresenter initPresenter() {
+    public TestContact.TestPresenter initPresenter() {
         return null;
+    }
+
+    @Override
+    public void setPresenter(BasePresenter P) {
+
+    }
+
+    @Override
+    public void setData(List<Speaker> dataList) {
+
     }
 }
