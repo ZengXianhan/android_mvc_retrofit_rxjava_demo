@@ -1,6 +1,9 @@
 package com.zengxh.framework_demo.Util;
 
+import com.zengxh.framework_demo.Model.DataBean;
 import com.zengxh.framework_demo.Model.Speaker;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -20,5 +23,5 @@ public interface RetrofitService {
      * @return
      */
     @GET("MasterAPI?Page=Speaker&lang=en")
-    Observable<Speaker> test();
+    Observable<DataBean<Speaker>> test();
 }

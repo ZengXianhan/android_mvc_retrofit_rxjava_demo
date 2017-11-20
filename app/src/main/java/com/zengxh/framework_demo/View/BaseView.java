@@ -7,6 +7,10 @@ import com.zengxh.framework_demo.Presenter.BasePresenter;
  */
 
 public interface BaseView<P> {
+    //初始化view
+    void initView();
+    //初始化事件
+    void initEvent();
     //设置Presenter
     void setPresenter(BasePresenter P);
     //显示dialog

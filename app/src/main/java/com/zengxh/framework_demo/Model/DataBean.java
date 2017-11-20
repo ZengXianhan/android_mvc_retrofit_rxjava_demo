@@ -9,7 +9,7 @@ import java.util.List;
 public class DataBean<V> {
     private String message;
     private String Status;
-    private List<V> data;
+    protected List<V> data;
 
     public String getMessage() {
         return message;

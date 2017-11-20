@@ -1,5 +1,6 @@
 package com.zengxh.framework_demo.View.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import com.zengxh.framework_demo.View.BaseView;
 public abstract class BaseActivity <P extends BasePresenter> extends AppCompatActivity implements BaseView {
     protected P presenter;
     public Context context;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,7 @@ public abstract class BaseActivity <P extends BasePresenter> extends AppCompatAc
         context = this;
         ActivityManager.getAppInstance().addActivity(this);//将当前activity添加进入管理栈
         presenter = initPresenter();
+        progressDialog = new ProgressDialog(context);
     }
 
     @Override
@@ -44,11 +47,12 @@ public abstract class BaseActivity <P extends BasePresenter> extends AppCompatAc
 
     @Override
     public void dismissLoadingDialog() {
-
+        progressDialog.dismiss();
     }
 
     @Override
     public void showLoadingDialog(String msg) {
-
+        progressDialog.setMessage(msg);
+        progressDialog.show();
     }
 }

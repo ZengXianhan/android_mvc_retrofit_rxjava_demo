@@ -1,4 +1,4 @@
-package com.zengxh.framework_demo;
+package com.zengxh.framework_demo.Contract;
 
 import com.zengxh.framework_demo.Model.Speaker;
 import com.zengxh.framework_demo.Presenter.BasePresenter;
@@ -10,7 +10,7 @@ import java.util.List;
  * Created by simtech on 17/11/2017.
  */
 
-public interface TestContact {
+public interface TestContract {
     interface TestView extends BaseView {
         /**
          * 设置数据
