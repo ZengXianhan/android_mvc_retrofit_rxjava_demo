@@ -1,9 +1,13 @@
 package com.zengxh.framework_demo.Model;
 
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Generated;
+
 /**
  * Created by simtech on 17/11/2017.
  */
 
+@Entity
 public class Speaker {
     /**
      * s_companay : American Bureau of Shipping
@@ -32,6 +36,28 @@ public class Speaker {
     private String s_fullname;
     private String s_bio;
     private String s_email;
+
+    @Generated(hash = 2062144608)
+    public Speaker(String s_companay, String s_job, String UpdatedTime, String s_address,
+            String clientID, String s_mobile, String s_profilepic, String ID,
+            String s_country, String s_fullname, String s_bio, String s_email) {
+        this.s_companay = s_companay;
+        this.s_job = s_job;
+        this.UpdatedTime = UpdatedTime;
+        this.s_address = s_address;
+        this.clientID = clientID;
+        this.s_mobile = s_mobile;
+        this.s_profilepic = s_profilepic;
+        this.ID = ID;
+        this.s_country = s_country;
+        this.s_fullname = s_fullname;
+        this.s_bio = s_bio;
+        this.s_email = s_email;
+    }
+
+    @Generated(hash = 2083994827)
+    public Speaker() {
+    }
 
     public String getS_companay() {
         return s_companay;

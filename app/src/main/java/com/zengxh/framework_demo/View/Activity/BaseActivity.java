@@ -28,6 +28,16 @@ public abstract class BaseActivity <P extends BasePresenter> extends AppCompatAc
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
     protected void onDestroy() {
         ActivityManager.getAppInstance().finishActivity(this);//将当前activity移除管理栈
         if (presenter != null) {
@@ -35,6 +45,11 @@ public abstract class BaseActivity <P extends BasePresenter> extends AppCompatAc
             presenter = null;
         }
         super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
     /**

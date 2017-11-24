@@ -11,8 +11,6 @@ public interface BaseView<P> {
     void initView();
     //初始化事件
     void initEvent();
-    //设置Presenter
-    void setPresenter(BasePresenter P);
     //显示dialog
     void showLoadingDialog(String msg);
     //取消dialog

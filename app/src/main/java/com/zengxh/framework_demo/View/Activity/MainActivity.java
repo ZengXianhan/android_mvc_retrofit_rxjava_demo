@@ -1,63 +1,52 @@
 package com.zengxh.framework_demo.View.Activity;
 
-import android.app.ProgressDialog;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ListView;
+import android.view.View;
+import android.widget.Button;
 
-import com.zengxh.framework_demo.Model.Speaker;
-import com.zengxh.framework_demo.Presenter.BasePresenter;
-import com.zengxh.framework_demo.Presenter.TestPresenterImpl;
 import com.zengxh.framework_demo.R;
-import com.zengxh.framework_demo.Contract.TestContract;
-import com.zengxh.framework_demo.View.Adapter.TestAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends BaseActivity<TestContract.TestPresenter> implements TestContract.TestView {
+public class MainActivity extends Activity {
+    Intent intent;
 
-    @Bind(R.id.lv_test_data)
-    ListView lvTestData;
-
-    TestAdapter adapter;
-    List<Speaker> data = new ArrayList<>();
+    @Bind(R.id.btn_main_go_to_list)
+    Button btnMainGoToList;
+    @Bind(R.id.btn_main_go_to_green_dao)
+    Button btnMainGoToGreenDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        initView();
-        presenter.getData();
+        initEvent();
     }
 
-    @Override
-    public TestContract.TestPresenter initPresenter() {
-        return new TestPresenterImpl(this);
+    private void initEvent(){
+        btnMainGoToList.setOnClickListener(onClickListener);
+        btnMainGoToGreenDao.setOnClickListener(onClickListener);
     }
 
-    @Override
-    public void initView() {
-    }
-
-    @Override
-    public void initEvent() {
-
-    }
-
-    @Override
-    public void setPresenter(BasePresenter P) {
-
-    }
-
-    @Override
-    public void setData(List<Speaker> dataList) {
-        data = dataList;
-        adapter = new TestAdapter(context, data);
-        lvTestData.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-    }
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.btn_main_go_to_list:
+                    //TODO implement
+                    intent = new Intent(getApplicationContext(),ListDemoActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.btn_main_go_to_green_dao:
+                    //TODO implement
+                    intent = new Intent(getApplicationContext(),GreenDaoDemoActivity.class);
+                    startActivity(intent);
+                    break;
+            }
+        }
+    };
 }

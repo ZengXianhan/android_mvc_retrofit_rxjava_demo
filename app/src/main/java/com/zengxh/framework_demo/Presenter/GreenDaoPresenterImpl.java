@@ -1,8 +1,10 @@
 package com.zengxh.framework_demo.Presenter;
 
+import android.content.Context;
 import android.util.Log;
 
-import com.zengxh.framework_demo.Contract.TestContract;
+import com.zengxh.framework_demo.Contract.GreenDaoContract;
+import com.zengxh.framework_demo.Database.SpeakerDB;
 import com.zengxh.framework_demo.Model.DataBean;
 import com.zengxh.framework_demo.Model.Speaker;
 import com.zengxh.framework_demo.Util.RetrofitFactory;
@@ -17,20 +19,19 @@ import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- * Created by simtech on 17/11/2017.
+ * Created by simtech on 24/11/2017.
  */
 
-public class TestPresenterImpl extends BasePresenterImpl<TestContract.TestView> implements TestContract.TestPresenter {
+public class GreenDaoPresenterImpl extends BasePresenterImpl<GreenDaoContract.View> implements GreenDaoContract.Presenter {
     private static String LOG_TAG = "TestPresenterImpl";
-    public TestPresenterImpl(TestContract.TestView view) {
+    private SpeakerDB speakerDB;
+    public GreenDaoPresenterImpl(GreenDaoContract.View view) {
         super(view);
     }
 
-    /**
-     * 获取数据
-     */
     @Override
-    public void getData() {
+    public void saveData(final Context context) {
+        speakerDB = new SpeakerDB(context);
         RetrofitFactory.getInstance()
                 .test()//测试接口
                 .subscribeOn(Schedulers.io())
@@ -54,7 +55,7 @@ public class TestPresenterImpl extends BasePresenterImpl<TestContract.TestView> 
                     @Override
                     public void accept(@NonNull List<Speaker> speakerBean) throws Exception {
                         Log.d(LOG_TAG, "subscribe success");
-                        view.setSpeakerData(speakerBean);
+                        speakerDB.insertList(speakerBean);
                         view.dismissLoadingDialog();
                     }
                 }, new Consumer<Throwable>() {
@@ -64,5 +65,10 @@ public class TestPresenterImpl extends BasePresenterImpl<TestContract.TestView> 
                         Log.e(LOG_TAG,throwable.getMessage());
                     }
                 });
+    }
+
+    @Override
+    public void getData() {
+
     }
 }

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">framework_demo</string>
+    <!--view string-->
+    <string name="btn_gd_get_data">Search</string>
+    <string name="et_gd_search_id_hint">search by id</string>
+    <string name="btn_gd_create_data">Create New</string>
 </resources>

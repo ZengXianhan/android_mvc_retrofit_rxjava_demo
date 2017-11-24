@@ -18,6 +18,14 @@ android {
     }
 }
 
+//greenDao
+apply plugin: 'org.greenrobot.greendao'
+greendao {
+    schemaVersion 1 //数据库版本号
+    daoPackage 'com.zengxh.greendao.db'// 设置DaoMaster、DaoSession、Dao 包名
+    targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
@@ -26,6 +34,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
+    //rxJava2 and retrofit
     compile 'io.reactivex.rxjava2:rxjava:2.1.1'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
@@ -34,6 +43,12 @@ dependencies {
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'//配合rxjava2
     compile 'com.squareup.okhttp3:logging-interceptor:3.8.1'//拦截器
 
+    //butter knife
     annotationProcessor 'com.jakewharton:butterknife:7.0.1'
     compile 'com.jakewharton:butterknife:7.0.1'
+
+    compile 'org.greenrobot:greendao:3.2.2'
+    compile 'net.zetetic:android-database-sqlcipher:3.5.6'//加密库依赖（可选项
 }
+
+
