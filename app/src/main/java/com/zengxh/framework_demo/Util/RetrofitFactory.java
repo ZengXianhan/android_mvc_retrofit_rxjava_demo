@@ -34,7 +34,7 @@ public class RetrofitFactory {
             .build();
 
     private static RetrofitService retrofitService = new Retrofit.Builder()
-            .baseUrl(RetrofitService.BASE_URL)
+            .baseUrl(RetrofitService.Test_URL)
             // 添加Gson转换器
             .addConverterFactory(GsonConverterFactory.create(new GsonBuilder()
                     .setLenient()

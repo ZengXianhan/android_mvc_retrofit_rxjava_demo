@@ -15,7 +15,7 @@ import retrofit2.http.Query;
 
 public interface RetrofitService {
 
-    String BASE_URL = "http://203.127.83.146/mobileotcasia2018/apiv1/";
+    String Test_URL = "http://203.127.83.146/mobileotcasia2018/apiv1/";
 
     /**
      * 测试接口
