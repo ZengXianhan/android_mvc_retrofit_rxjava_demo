@@ -26,7 +26,7 @@ public class RetrofitFactory {
             .addInterceptor(new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
                 @Override
                 public void log(String message) {
-                    Log.e("httpClient_TAG", "log: " + message);
+                    Log.d("httpClient_TAG", "log: " + message);
                 }
             }).setLevel(HttpLoggingInterceptor.Level.BASIC))
             .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
