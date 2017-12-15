@@ -4,4 +4,6 @@
     <string name="btn_gd_get_data">Search</string>
     <string name="et_gd_search_id_hint">search by id</string>
     <string name="btn_gd_create_data">Create New</string>
+    <string name="btn_gd_clear_data">Clear Data</string>
+    <string name="btn_gd_download_data">Download Data</string>
 </resources>

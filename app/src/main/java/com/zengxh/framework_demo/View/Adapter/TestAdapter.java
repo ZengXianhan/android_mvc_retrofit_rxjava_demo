@@ -30,6 +30,11 @@ public class TestAdapter extends BaseAdapter {
         this.layoutInflater = LayoutInflater.from(context);
     }
 
+    public void updateAdapter(List<Speaker> data){
+        objects = data;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getCount() {
         return objects.size();

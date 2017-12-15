@@ -92,4 +92,11 @@ public class SpeakerDB extends DBManager implements BaseDB<Speaker> {
         Speaker speaker = qb.uniqueOrThrow();
         return speaker;
     }
+
+    public void clearAllSpeaker(){
+        DaoMaster daoMaster = new DaoMaster(getReadableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        SpeakerDao dao = daoSession.getSpeakerDao();
+        dao.deleteAll();
+    }
 }

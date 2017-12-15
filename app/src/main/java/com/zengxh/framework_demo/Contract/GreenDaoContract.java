@@ -20,15 +20,18 @@ public interface GreenDaoContract {
          * @param dataList
          */
         void setSpeakerData(List<Speaker> dataList);  //set Data to the View
-        void updateData(List<Speaker> dataList);
         void searchDataById(String id);
+        void updateListView();
+        void initListView();
     }
 
     interface Presenter extends BasePresenter {
         /**
          * 获取数据
          */
-        void saveData(Context context);
-        void getData(); //get data from Model
+        void saveData(Context context, List<Speaker> data);
+        void clearData(Context context);
+        void downloadData(Context context);
+        void getData(Context context); //get data from DataBase
     }
 }
